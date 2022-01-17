@@ -2,16 +2,16 @@
 import { ReactElement } from 'react';
 import { Helmet } from 'react-helmet';
 // ---Components
-import Error404Cont from 'Cont/Error404/Error404Cont';
+import ProductList from 'Cont/ProductList';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
-export default function Error404Page():ReactElement {
+export default function ProductListPage():ReactElement {
   return (
     <>
       <Helmet>
-        <title>Ups! Error 404</title>
+        <title>HomePage | Inicio</title>
       </Helmet>
-      <Error404Cont />
+      <ProductList />
     </>
   );
 }

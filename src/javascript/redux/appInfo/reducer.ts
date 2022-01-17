@@ -8,7 +8,7 @@ import {
 import { Action, ReducerState, ResponsiveData } from '@Redux/appInfo/customTypes';
 
 // -------------------------------------------STATE------------------------------------
-const INITIAL_STATE: ReducerState  = {
+const INITIAL_STATE: ReducerState = {
   isMovil: false,
   winSize: 'lg',
   isLoading: false,

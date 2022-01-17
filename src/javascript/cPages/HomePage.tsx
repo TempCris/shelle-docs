@@ -5,11 +5,11 @@ import { Helmet } from 'react-helmet';
 import HomeCont from 'Cont/Home/HomeCont';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
-export default function HomePage (): ReactElement {
+export default function HomePage():ReactElement {
   return (
     <>
       <Helmet>
-        <title>Forge Template | Inicio</title>
+        <title>HomePage | Inicio</title>
       </Helmet>
       <HomeCont />
     </>

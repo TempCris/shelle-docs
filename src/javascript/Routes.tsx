@@ -17,8 +17,13 @@ import { ResponsiveData } from '@Redux/appInfo/customTypes';
 import isMovilDetector from 'AppConfig/isMovilDetector';
 // ---Pages
 import HomePage from 'Pages/HomePage';
+import ProductListPage from 'Pages/ProductListPage';
+import ProductDetailPage from 'Pages/ProductDetailPage';
+import TrackerPage from 'Pages/TrackerPage';
 import Error404Page from 'Pages/Error404Page';
-
+// ---Components
+import NavbarCont from 'Cont/NavBar/NavbarCont';
+import Footer from 'Cont/Footer';
 /** Render components as routes of the app, is the root of the entire app also,
  * get usefull data as window size of the app, current route and retrive the data to redux  */
 function Routes({ location }: RouteComponentProps): ReactElement {
@@ -38,14 +43,25 @@ function Routes({ location }: RouteComponentProps): ReactElement {
   useEffect(() => { updateCurrentParams(); }, [urlParams]);
   return (
     <Fragment>
+      <NavbarCont currentPath={currentPath} />
       <Switch>
         <Route path="/">
           <HomePage />
+        </Route>
+        <Route path="/productos">
+          <ProductListPage />
+        </Route>
+        <Route path="/item">
+          <ProductDetailPage />
+        </Route>
+        <Route path="/rastreo">
+          <TrackerPage />
         </Route>
         <Route path="*">
           <Error404Page />
         </Route>
       </Switch>
+      <Footer />
     </Fragment>
   );
 }
