@@ -13,8 +13,7 @@ interface Props {
 // ------------------------------------------ COMPONENT-----------------------------------------
 function Actions(props: Props): React.ReactElement | null {
   // ----------------------- hooks, const, props y states
-  const { onAddAndFinish, onAddToCart } = props
-  
+  const { onAddAndFinish, onAddToCart } = props;
   // ----------------------- Render
   return (
     <Row gutter={[0, 6]}>
@@ -41,7 +40,7 @@ function Actions(props: Props): React.ReactElement | null {
         />
       </Col>
     </Row>
-  )
+  );
 }
 
 export default Actions;

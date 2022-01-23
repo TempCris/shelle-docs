@@ -3,16 +3,15 @@ import {
   UPDATE_PARAMS,
   CHANGE_RESPONSIVE,
   UPDATE_PATH,
-  UPDATE_LOADING,
+  UPDATE_LOADING
 } from '@Redux/appInfo/types';
-import { Dispatch } from 'redux'
-import { ResponsiveData } from '@Redux/appInfo/customTypes';
+import { Dispatch } from 'redux';
 
 // -------------------------------------------ACTIONS------------------------------------
-export const changeResponsiveFlag = (responsiveData: ResponsiveData) => (dispatch: Dispatch) : void => {
+export const changeResponsiveFlag = (newFlag: boolean) => (dispatch: Dispatch) : void => {
   dispatch({
     type: CHANGE_RESPONSIVE,
-    payload: responsiveData
+    payload: newFlag
   });
 };
 

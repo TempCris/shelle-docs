@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-plusplus */
 import { RandArray, RandObj } from '@Declarations';
 
@@ -6,7 +7,7 @@ export const priceFormat = (number: number) : string => {
   // A partir de un int o float genera un string con formato de precio ($1,000.00)
   const money = new Intl
     .NumberFormat('en-IN', { style: 'currency', currency: 'USD' })
-    .format(number)
+    .format(number);
   return money;
 };
 
@@ -28,7 +29,7 @@ export const copyToIndex = (str: string, index: number) : string => {
   return copy;
 };
 
-export const copyFromOneIndexToOther = (str: string, index1: number, index2: number ) : string => {
+export const copyFromOneIndexToOther = (str: string, index1: number, index2: number) : string => {
   // Copia una cadena hasta el index indicado
   let copy = '';
   for (let i = index1; i <= index2; i++) {
@@ -39,7 +40,7 @@ export const copyFromOneIndexToOther = (str: string, index1: number, index2: num
 
 export const findIndexArrayObj = (array: Array<RandObj>, obj: RandObj): number => {
   const value = Object.values(obj)[0];
-  const isValueEqual = (element: unknown) => element === value; }
+  const isValueEqual = (element: unknown) => element === value;
   // Criterio de búsqueda para un mapeo
   let i;
   let found = false;
@@ -53,7 +54,7 @@ export const findIndexArrayObj = (array: Array<RandObj>, obj: RandObj): number =
   return found ? i : -1;
 };
 
-export const searchProductByID = (items: Array<RandObj>, id: string ) : number | null => {
+export const searchProductByID = (items: Array<RandObj>, id: string) : number | null => {
   // Busca el index de un id específico en un array con key llamada "_id"
   let found = null;
   items.forEach((item, index) => {
@@ -62,7 +63,7 @@ export const searchProductByID = (items: Array<RandObj>, id: string ) : number |
   return found;
 };
 
-export const searchObjectByProp = (items: Array<RandObj>, key: string, value: unknown) : number | null => {
+export const searchObjectByProp = (items: Array<RandObj>, key:string, value: unknown) : number | null => {
   // Busca el index de un id específico en un array con key llamada "_id"
   let found = null;
   items.forEach((item, index) => {
@@ -81,7 +82,7 @@ export const arrayWithoutIndex = (array: RandArray, skipIndex: number) : RandArr
   return newArray;
 };
 
-export const arrayElementSustitution = (array: RandArray, elementIndex: number, newElement: RandObj | number | string ): RandArray => {
+export const arrayElementSustitution = (array: RandArray, elementIndex: number, newElement: RandObj | number | string): RandArray => {
   let newArray : RandArray = [];
   array.forEach((element, index) => {
     if (index === elementIndex) {
@@ -116,8 +117,9 @@ export const getStringKey = (cadena: string): string => {
 };
 
 export const isId = (cadena: string): boolean => {
-  // regex valida una palabra continua que sólo puede contener letras numeros y '-'
-  return /^[0-9a-fA-F]{24}$/.test(cadena);
+/* regex valida una palabra continua que sólo puede contener letras numeros y '-' */
+  const isVal = /^[0-9a-fA-F]{24}$/.test(cadena);
+  return isVal;
 };
 
 export function ignoreArgs(someObj: RandObj, args: Array<string>) : RandObj {
@@ -127,7 +129,7 @@ export function ignoreArgs(someObj: RandObj, args: Array<string>) : RandObj {
   let doCopy = true;
 
   keys.forEach((key, i) => {
-    args.forEach(arg => {
+    args.forEach((arg) => {
       if (key === arg) {
         doCopy = false;
       }
@@ -144,7 +146,7 @@ export function selectArgs(someObj: RandObj, args: Array<string>): RandObj {
   let doCopy = false;
 
   keys.forEach((key, i) => {
-    args.forEach(arg => {
+    args.forEach((arg) => {
       if (key === arg) {
         doCopy = true;
       }
@@ -157,8 +159,7 @@ export function selectArgs(someObj: RandObj, args: Array<string>): RandObj {
 
 export function genRandomString(length: number) : string {
   let result = '';
-  const characters =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   const charactersLength = characters.length;
   for (let i = 0; i < length; i++) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
@@ -167,7 +168,7 @@ export function genRandomString(length: number) : string {
 }
 
 export function removeNullProperties(obj: RandObj) : RandObj {
-  Object.keys(obj).forEach(key => {
+  Object.keys(obj).forEach((key) => {
     const value = obj[key];
     const hasProperties = value && Object.keys(<RandObj>value).length > 0;
     if (value === null || value === undefined) {
@@ -179,7 +180,7 @@ export function removeNullProperties(obj: RandObj) : RandObj {
   return obj;
 }
 export function removeEmptyAndNull(obj: RandObj) : RandObj {
-  Object.keys(obj).forEach(key => {
+  Object.keys(obj).forEach((key) => {
     const value = obj[key];
     const hasProperties = value && Object.keys(<RandObj>value).length > 0;
     if (value === null || value === undefined || value === '') {
@@ -191,7 +192,7 @@ export function removeEmptyAndNull(obj: RandObj) : RandObj {
   return obj;
 }
 export function removeBlankProperties(obj: RandObj) : RandObj {
-  Object.keys(obj).forEach(key => {
+  Object.keys(obj).forEach((key) => {
     const value = obj[key];
     const hasProperties = value && Object.keys(<RandObj>value).length > 0;
     if (value === '') {
@@ -210,7 +211,7 @@ export function getWordsArray(str: string) : Array<string> {
 export function makeWordsArray(str: Array<string>) : string {
   return str.join(' ');
 }
-export function stringToObject ( query: string) : RandObj | null {
+export function stringToObject(query: string) : RandObj | null {
   /*
       Parse string from this:
           ?abc=foo&def=%5Basf%5D&xyz=5
@@ -221,20 +222,19 @@ export function stringToObject ( query: string) : RandObj | null {
             def: '[asf]',
             xyz: 5
           }
- 
   */
 
-  const isValid = /^(\?[a-zA-Z][a-zA-Z0-9_]+=[a-zA-Z0-9 %_:{}-]+)(&[a-zA-Z][a-zA-Z0-9_]+=[a-zA-Z0-9 %_:{}-]+)*$/i.test(query)
+  const isValid = /^(\?[a-zA-Z][a-zA-Z0-9_]+=[a-zA-Z0-9 %_:{}-]+)(&[a-zA-Z][a-zA-Z0-9_]+=[a-zA-Z0-9 %_:{}-]+)*$/i.test(query);
 
-  if(isValid){
-    const str = query.substr(1,query.length)
-    return JSON.parse('{"' + decodeURI(str).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
+  if (isValid) {
+    const str = query.substr(1, query.length);
+    return JSON.parse('{"' + decodeURI(str).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}');
   }
-  return null
+  return null;
 }
 
 export function objectToQueryString(someObj: RandObj) : string {
-  const queryString = Object.keys(someObj).map(key => key + '=' + someObj[key]).join('&');
+  const queryString = Object.keys(someObj).map((key) => key + '=' + someObj[key]).join('&');
 
-  return `?${queryString}`
+  return `?${queryString}`;
 }

@@ -2,21 +2,20 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 // ---Types
-import { Product } from '@Reducers/productDetail/customTypes'
+import { Product } from '@Redux/appInfo/customTypesPd';
 // ---Others
-import { priceFormat } from 'Others/otherMethods'
+import { priceFormat } from 'AppConfig/otherMethods';
 
 // ---AUX COMPONENT
 function PriceHandler(props: {precioOnline: number; descuento: number}) {
-  const { precioOnline, descuento } = props
-  const promo = descuento > 0
+  const { precioOnline, descuento } = props;
+  const promo = descuento > 0;
   // ----------------------- Metodos Principales
   function getExtraPrice(price: number) : number {
-    return price*100/(100-descuento)
+    return (price * 100) / (100 - descuento);
   }
-  
-  if(promo){
-    return(
+  if (promo) {
+    return (
       <Row>
         <Col xs={4} sm={4} md={4} lg={4} xl={4} xxl={4}>
           <h3>Precio:</h3>
@@ -32,9 +31,9 @@ function PriceHandler(props: {precioOnline: number; descuento: number}) {
           </section>
         </Col>
       </Row>
-    )
+    );
   }
-  return(
+  return (
     <Row>
       <Col xs={4} sm={4} md={4} lg={4} xl={4} xxl={4}>
         <h3>Precio:</h3>
@@ -45,24 +44,24 @@ function PriceHandler(props: {precioOnline: number; descuento: number}) {
         </h4>
       </Col>
     </Row>
-  )
+  );
 }
 
-function InfoLabel(props: { 
-    label: string; 
-    value?: string | number; 
+function InfoLabel(props: {
+    label: string;
+    value?: string | number;
     valueType?: 'danger';
   }) {
-    const { label, value, valueType } = props
-    return(
-      <Col xs={12} sm={8} md={12} lg={12} xl={12} xxl={12}>
-        <h3>
-          {`${label}:`}
-          <span className={valueType}>{value}</span>
-        </h3>
-      </Col>
-    )
-  }
+  const { label, value, valueType } = props;
+  return (
+    <Col xs={12} sm={8} md={12} lg={12} xl={12} xxl={12}>
+      <h3>
+        {`${label}:`}
+        <span className={valueType}>{value}</span>
+      </h3>
+    </Col>
+  );
+}
 // ------------------------------------------ TYPES-----------------------------------------
 interface Props {
   productDetail: Product | Record<string, never>
@@ -71,10 +70,12 @@ interface Props {
 // ------------------------------------------ COMPONENT-----------------------------------------
 function ShortDataCard(props: Props): React.ReactElement | null {
   // ----------------------- hooks, const, props y states
-  const { productDetail  } = props
-  const { precioOnline, descuento, disponibles, marca, nuevo, estetica, categoria, countPurchases } = productDetail
-  const useType = nuevo? 'Articulo nuevo' : 'Articulo usado o reacondicionado'
-  const available = disponibles > 0
+  const { productDetail } = props;
+  const {
+    precioOnline, descuento, disponibles, marca, nuevo, estetica, categoria, countPurchases
+  } = productDetail;
+  const useType = nuevo ? 'Articulo nuevo' : 'Articulo usado o reacondicionado';
+  const available = disponibles > 0;
   const vendidos = countPurchases || 0;
   // ----------------------- Render
   return (
@@ -84,18 +85,18 @@ function ShortDataCard(props: Props): React.ReactElement | null {
           <PriceHandler descuento={descuento} precioOnline={precioOnline} />
         </Col>
         <InfoLabel label="Vendidos" value={vendidos} />
-        <InfoLabel 
-          label="Disponibles" 
-          value={available?disponibles:'Agotado'} 
-          valueType={available?undefined:'danger'} 
+        <InfoLabel
+          label="Disponibles"
+          value={available ? disponibles : 'Agotado'}
+          valueType={available ? undefined : 'danger'}
         />
         <InfoLabel label="Marca" value={marca} />
-        <InfoLabel label="Categoria" value={categoria && categoria.length >0 ? categoria[0]: undefined} />
+        <InfoLabel label="Categoria" value={categoria && categoria.length > 0 ? categoria[0] : undefined} />
         <InfoLabel label="Tipo" value={useType} />
-        {nuevo? null : <InfoLabel label="Estética" value={estetica} />}
+        {nuevo ? null : <InfoLabel label="Estética" value={estetica} />}
       </Row>
     </section>
-  )
+  );
 }
 
 export default ShortDataCard;

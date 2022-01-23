@@ -5,44 +5,64 @@
     font-style: normal;
   }
 
-// default button css off
-// button, input[type="submit"], input[type="reset"] {
-//   background: none;
-//   color: inherit;
-//   border: none;
-//   padding: 0;
-//   font: inherit;
-//   cursor: pointer;
-//   outline: inherit;
-// }
-
+button, input[type="submit"], input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  }
 body {
+  background-color: @backgroundFallBack1;
+  background: @backgroundImage1 no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Questrial';
   margin: 0px;
   padding: 0px;
-  // Font
-  font-family: 'Questrial';
-  color: @colorPrimaryText;
 }
-
-
 p{
-  color: @colorPrimaryText;
+  color: @colorSecundaryText;
+  font-size: 22px;
+  text-align: center;
   span{
-    color: @colorThreeText;
+    color: @colorPrimaryText;
+    font-size: 26px;
   }
 }
-
 .center-block{
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
-
+.col-vertical-align{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
 .text-green{
   color: @simpleColorGreen;
 }
 .text-yellow{
   color: @simpleColorYellow
 }
-
+.error-mid-mssg{
+  color: @colorError;
+  font-size: 18px;
+}
+.modal-title{
+  color: @colorError;
+}
+.modal-message{
+  font-size: 18px;
+}
+.container94{
+  width: 94%;
+  margin: 10px 3% 10px 3%;
+  
+}

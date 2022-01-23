@@ -1,9 +1,9 @@
 // ---Dependencys
 import React from 'react';
 // ---Components
-import ShortDataCard from 'Comp/ProductDetail/ShortDataCard';
+import ShortDataCard from 'Cont/ProductDetail/components/ShortDataCard';
 // ---Types
-import { Product } from '@Reducers/productDetail/customTypes'
+import { Product } from '@Redux/appInfo/customTypesPd';
 
 // ------------------------------------------ TYPES-----------------------------------------
 interface Props {
@@ -12,13 +12,12 @@ interface Props {
 // ------------------------------------------ COMPONENT-----------------------------------------
 function ShortData(props: Props): React.ReactElement | null {
   // ----------------------- hooks, const, props y states
-  const { productDetail  } = props
-  
+  const { productDetail } = props;
   // ----------------------- Render
-  if(productDetail === {}){
-    return null
+  if (productDetail === {}) {
+    return null;
   }
-  return <ShortDataCard productDetail={productDetail} />
+  return <ShortDataCard productDetail={productDetail} />;
 }
 
 export default ShortData;

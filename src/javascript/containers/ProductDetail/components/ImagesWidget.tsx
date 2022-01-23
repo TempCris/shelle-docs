@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col } from 'antd';
 // ---Types
-import { Images } from '@Reducers/productDetail/customTypes'
+import { Images } from '@Redux/appInfo/customTypesPd';
 // ---Utils
 import FitImg from 'Utils/FitImg';
 
@@ -12,40 +12,38 @@ interface Props {
   nombre: string;
 }
 // ------------------------------------------ COMPONENT-----------------------------------------
-function ImagesWidget (props: Props): React.ReactElement | null{
+export default function ImagesWidget(props: Props): React.ReactElement | null {
   // ----------------------- hooks, const, props y states
   const { images, nombre } = props;
   const [main, setMain] = useState('');
   const [array, setArray] = useState<string[]>([]);
   // useEffect
-  useEffect(()=>{updateMain()}, [images])
-  
+  useEffect(() => { updateMain(); }, [images]);
+
   // ----------------------- Metodos Aux
   function updateMain() {
-    if(images && images.cover){
-      setMain(images.cover)
-      const newArray = images.extra ? [images.cover, ...images.extra] : [images.cover]
-      setArray(newArray)
+    if (images && images.cover) {
+      setMain(images.cover);
+      const newArray = images.extra ? [images.cover, ...images.extra] : [images.cover];
+      setArray(newArray);
     }
   }
 
   // ----------------------- Metodos Principales
   const mapExtraImages = () => {
     if (array.length !== 0) {
-      return array.map(element => {
-        return (
-          <Row>
-            <FitImg
-              srcImg={element}
-              estilo="cover-cont cover-cont-small"
-              onClick={() => {
-                setMain(element);
-              }}
-              alt={nombre}
-            />
-          </Row>
-        );
-      });
+      return array.map((element) => (
+        <Row>
+          <FitImg
+            srcImg={element}
+            estilo="cover-cont cover-cont-small"
+            onClick={() => {
+              setMain(element);
+            }}
+            alt={nombre}
+          />
+        </Row>
+      ));
     }
     return null;
   };
@@ -58,5 +56,3 @@ function ImagesWidget (props: Props): React.ReactElement | null{
     </Row>
   );
 }
-
-export default ImagesWidget;

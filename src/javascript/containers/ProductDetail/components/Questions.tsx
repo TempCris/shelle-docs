@@ -1,15 +1,18 @@
 // ---Dependencys
-import React from 'react';
+import { ReactElement } from 'react';
 import { Row, Col } from 'antd';
 // ---CommonComps
-import ButtonFB from 'CComps/ButtonFB';
-import ButtonWhats from 'CComps/ButtonWhats'
+import ButtonFB from 'Utils/ButtonFB';
+import ButtonWhats from 'Utils/ButtonWhats';
 
 // ------------------------------------------ TYPES-----------------------------------------
+interface Props {
+  id:string
+}
 // ------------------------------------------ COMPONENT-----------------------------------------
-function Questions(props: {id: string}): React.ReactElement | null {
+export default function Questions(props: Props): ReactElement | null {
   // ----------------------- hooks, const, props y states
-  const { id } = props
+  const { id } = props;
   // ----------------------- Render
   return (
     <Row>
@@ -26,7 +29,5 @@ function Questions(props: {id: string}): React.ReactElement | null {
         <ButtonWhats id={id} />
       </Col>
     </Row>
-  )
+  );
 }
-
-export default Questions;

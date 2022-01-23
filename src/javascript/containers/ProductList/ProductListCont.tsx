@@ -3,20 +3,20 @@ import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 // ---Redux
 import { useSelector, useDispatch } from 'react-redux';
-import { updateLoading } from 'Actions/appInfo';
-import { updateSearchParams, updateReduxProducts } from 'Actions/productList';
-import { ReduxState } from 'Reducers';
+import { updateLoading } from '@Redux/appInfo/actions';
+import { updateSearchParams, updateReduxProducts } from '@Redux/appInfo/productList';
+import { ReduxState } from '@Redux/globalReducers';
 // ---Components
-import TabMenu from 'Comp/ProductList/TabMenu';
-import MapProudcts from 'Comp/ProductList/MapProudcts';
+import TabMenu from 'Cont/ProductList/components/TabMenu';
+import MapProudcts from 'Cont/ProductList/components/MapProudcts';
 // --Request
-import { searchProducts } from 'Others/peticiones';
-import { asyncHandler, testError } from 'Others/requestHandlers';
+import { searchProducts } from 'AppConfig/peticiones';
+import { asyncHandler, testError } from 'AppConfig/requestHandlers';
 // ---Types
-import { SearchParams, SearchParamsURL, ProductPayload } from '@Reducers/productList/customTypes'
+import { SearchParams, SearchParamsURL, ProductPayload } from '@Redux/appInfo/customTypesPl';
 // ---Others
-import { stringToObject, removeEmptyAndNull, objectToQueryString } from 'Others/otherMethods'
-import { validateSearchParams } from 'Others/validations'
+import { stringToObject, removeEmptyAndNull, objectToQueryString } from 'AppConfig/otherMethods';
+import { validateSearchParams } from 'AppConfig/validations';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
 function ProductList () : React.ReactElement {

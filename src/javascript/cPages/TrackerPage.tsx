@@ -2,7 +2,7 @@
 import { ReactElement } from 'react';
 import { Helmet } from 'react-helmet';
 // ---Components
-import ProductList from 'Cont/ProductList';
+import ProductList from 'Cont/ProductList/ProductListCont';
 import InDevPage from 'Utils/InDevPage';
 
 // ------------------------------------------ COMPONENT-----------------------------------------

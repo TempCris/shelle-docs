@@ -2,7 +2,7 @@
 import { ReactElement } from 'react';
 import { Helmet } from 'react-helmet';
 // ---Components
-import ProductDetail from 'Cont/ProductDetail/ProductDetail';
+import ProductDetail from 'Cont/ProductDetail/ProductDetailCont';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
 export default function HomePage():ReactElement {
