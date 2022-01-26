@@ -2,7 +2,6 @@
 import { ReactElement } from 'react';
 import { Helmet } from 'react-helmet';
 // ---Components
-import ProductList from 'Cont/ProductList/ProductListCont';
 import InDevPage from 'Utils/InDevPage';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
@@ -14,7 +13,6 @@ export default function TrackerPage():ReactElement {
         <title>TrackerPage | Inicio</title>
       </Helmet>
       <InDevPage compName="Rastreo" finishDate={finishDate as unknown as number} />
-      <ProductList />
     </>
   );
 }
