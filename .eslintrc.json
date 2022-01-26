@@ -41,7 +41,8 @@
       },
     "rules": {
         // Javascript
-        "max-len": "off",
+        "max-len": "warn",
+        "no-underscore-dangle":"off",
         "no-unused-vars": "off",
         "no-use-before-define": "off",
         "import/no-unresolved": "off",

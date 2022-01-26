@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 // ---Dependencys
 import { useState, useEffect } from 'react';
 // ---Types
@@ -6,7 +5,7 @@ import { ResponsiveData } from '@Redux/appInfo/customTypes';
 
 function isMovilDetector() : ResponsiveData {
   const isBrowser = typeof window === 'object';
-  if(isBrowser) {
+  if (isBrowser) {
     const getBrowserSize = (): ResponsiveData => {
       const size = window.innerWidth;
       const caseXS = size < 576;
@@ -22,21 +21,20 @@ function isMovilDetector() : ResponsiveData {
       if (caseXL) return { isMovil: false, winSize: 'xl' };
       if (caseXXL) return { isMovil: false, winSize: 'xxl' };
       return { isMovil: false, winSize: 'lg' };
-    }
+    };
     const [windowSize, setWindowSize] = useState(getBrowserSize);
 
     const handleResize = () => {
       setWindowSize(getBrowserSize());
-    }
+    };
 
     const handleWindow = () => {
       if (!isBrowser) return false;
-  
+
       window.addEventListener('resize', handleResize);
       return () => window.removeEventListener('resize', handleResize);
-    }
-  
-  
+    };
+
     useEffect(() => {
       handleWindow();
     }, []);

@@ -2,7 +2,7 @@
 import React, { useEffect, ReactElement } from 'react';
 // ---Redux
 import { useSelector, useDispatch } from 'react-redux';
-import { saveHomeData, saveReduxProducts } from '@Redux/appInfo/Home';
+import { saveHomeData, saveReduxProducts } from '@Redux/home/actions';
 import { updateLoading } from '@Redux/appInfo/actions';
 // ---Components
 import DinamicCarousel from 'Cont/Home/components/DinamicCarousel';
@@ -11,7 +11,7 @@ import ButtonProd from 'Cont/Home/components/ButtonProd';
 import Destacados from 'Cont/Home/components/Destacados';
 // ---Types
 import { ReduxState } from '@Redux/globalReducers';
-import { ReducerState as HomeData, Product } from '@Redux/appInfo/customTypesHome';
+import { ReducerState as HomeData, Product } from '@Redux/home/customTypes';
 // ---Others
 import { ownerData, appConfig } from 'AppConfig/globalConfig';
 // --Request
