@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 };
 
 // ------------------------------------------REDUCER-----------------------------------
-export default (action: Action, state = INITIAL_STATE) : ReducerState => {
+export default (state = INITIAL_STATE, action: Action) : ReducerState => {
   const { type, payload } = action;
   switch (type) {
     case GET_PUBLIC_HOME:

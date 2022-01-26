@@ -17,7 +17,7 @@ const INITIAL_STATE: ReducerState = {
 };
 
 // ------------------------------------------REDUCER-----------------------------------
-export default (action: Action, state = INITIAL_STATE) : ReducerState => {
+export default (state = INITIAL_STATE, action: Action) : ReducerState => {
   const { type, payload } = action;
   switch (type) {
     case CHANGE_RESPONSIVE:
