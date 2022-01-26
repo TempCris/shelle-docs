@@ -45,9 +45,6 @@ function Routes({ location }: RouteComponentProps): ReactElement {
     <Fragment>
       <NavbarCont currentPath={currentPath} />
       <Switch>
-        <Route path="/">
-          <HomePage />
-        </Route>
         <Route path="/productos">
           <ProductListPage />
         </Route>
@@ -56,6 +53,9 @@ function Routes({ location }: RouteComponentProps): ReactElement {
         </Route>
         <Route path="/rastreo">
           <TrackerPage />
+        </Route>
+        <Route path="/">
+          <HomePage />
         </Route>
         <Route path="*">
           <Error404Page />

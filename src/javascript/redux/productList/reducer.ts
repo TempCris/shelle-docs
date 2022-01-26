@@ -1,27 +1,37 @@
 // -------------------------------------------TYPES------------------------------------
-import { GET_PUBLIC_HOME, GET_PRODUCTS } from '@Redux/home/types';
-import { Action, ReducerState, Product } from '@Redux/home/customTypes';
+import { UPDATE_SEARCH_PARAMS, UPDATE_SEARCH_PRODUCTS } from '@Redux/productList/types';
+import {
+  Action, ReducerState, SearchParams, ProductPayload
+} from '@Redux/productList/customTypes';
 
 // -------------------------------------------STATE------------------------------------
 const INITIAL_STATE = {
+  searchParams: {
+    pageNumber: 1,
+    pageSize: 30,
+    categoria: 'Todos'
+  },
+  products: [],
+  productCount: 0
 };
 
 // ------------------------------------------REDUCER-----------------------------------
 export default (state = INITIAL_STATE, action: Action) : ReducerState => {
   const { type, payload } = action;
   switch (type) {
-    case GET_PUBLIC_HOME:
+    case UPDATE_SEARCH_PARAMS:
       return {
         ...state,
-        ...<ReducerState>payload
+        searchParams: {
+          // ...state.searchParams,
+          ...<SearchParams>payload
+        }
       };
-
-    case GET_PRODUCTS:
+    case UPDATE_SEARCH_PRODUCTS:
       return {
-        ...<ReducerState>state,
-        productsData: <Array<Product>>payload
+        ...state,
+        ...<ProductPayload>payload
       };
-
     default:
       return <ReducerState>state;
   }

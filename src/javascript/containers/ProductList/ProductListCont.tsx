@@ -1,10 +1,11 @@
+/* eslint-disable max-len */
 // ---Dependencys
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 // ---Redux
 import { useSelector, useDispatch } from 'react-redux';
 import { updateLoading } from '@Redux/appInfo/actions';
-import { updateSearchParams, updateReduxProducts } from '@Redux/appInfo/productList';
+import { updateSearchParams, updateReduxProducts } from '@Redux/productList/actions';
 import { ReduxState } from '@Redux/globalReducers';
 // ---Components
 import TabMenu from 'Cont/ProductList/components/TabMenu';
@@ -13,13 +14,13 @@ import MapProudcts from 'Cont/ProductList/components/MapProudcts';
 import { searchProducts } from 'AppConfig/peticiones';
 import { asyncHandler, testError } from 'AppConfig/requestHandlers';
 // ---Types
-import { SearchParams, SearchParamsURL, ProductPayload } from '@Redux/appInfo/customTypesPl';
+import { SearchParams, SearchParamsURL, ProductPayload } from '@Redux/productList/customTypes';
 // ---Others
 import { stringToObject, removeEmptyAndNull, objectToQueryString } from 'AppConfig/otherMethods';
 import { validateSearchParams } from 'AppConfig/validations';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
-function ProductList () : React.ReactElement {
+function ProductList() : React.ReactElement {
   const history = useHistory();
   // Redux States
   const { currentParams } = useSelector((reducers: ReduxState) => reducers.appInfoReducer);
@@ -30,50 +31,50 @@ function ProductList () : React.ReactElement {
   const searchParamsAction = (searchParams: SearchParams) => dispatchR(updateSearchParams(searchParams));
   const updateProducts = (data: ProductPayload) => dispatchR(updateReduxProducts(data));
   // useEffect
-  useEffect(()=>{ updateSearch() },[currentParams])
-  useEffect(()=>{getData()},[reduxSearchParams])
-  
+  useEffect(() => { updateSearch(); }, [currentParams]);
+  useEffect(() => { getData(); }, [reduxSearchParams]);
+
   // -----------------------------MAIN METHODS--------------------------------
   function getData() {
     isLoading(true);
-    const fixedData = fitDataToRequest()
+    const fixedData = fitDataToRequest();
     asyncHandler(searchProducts, onSuccess, onError, fixedData);
   }
   function hystoryPush(path: string) {
-    history.push(path)
+    history.push(path);
   }
   function updateSearch() {
-    const searchParams = areValidParams()
-    if(searchParams){
-      searchParamsAction(searchParams)
+    const searchParams = areValidParams();
+    if (searchParams) {
+      searchParamsAction(searchParams);
     }
   }
   function onPageChange(page: number, pageSize?: number) {
-    const newSearchParams ={
+    const newSearchParams = {
       ...reduxSearchParams,
       pageNumber: page,
       pageSize
-    }
-    const newParams = objectToQueryString(newSearchParams)
-    history.push(`/productos${newParams}`)
+    };
+    const newParams = objectToQueryString(newSearchParams);
+    history.push(`/productos${newParams}`);
   }
   // -----------------------------AUX METHODS--------------------------------
   function areValidParams() {
-    let searchParams = stringToObject(currentParams)
-    const { error } = validateSearchParams(searchParams)
-    if(error){
-      return null
+    let searchParams = stringToObject(currentParams);
+    const { error } = validateSearchParams(searchParams);
+    if (error) {
+      return null;
     }
-    const {pageNumber, pageSize} = searchParams as unknown as SearchParamsURL
+    const { pageNumber, pageSize } = searchParams as unknown as SearchParamsURL;
     searchParams = {
       ...searchParams,
-      pageNumber: pageNumber? parseInt(pageNumber, 10): 1,
-      pageSize: pageSize? parseInt(pageSize, 10): 30,
-    }
-    return searchParams as unknown as SearchParams
+      pageNumber: pageNumber ? parseInt(pageNumber, 10) : 1,
+      pageSize: pageSize ? parseInt(pageSize, 10) : 30
+    };
+    return searchParams as unknown as SearchParams;
   }
   function onSuccess(data: ProductPayload) {
-    updateProducts(data)
+    updateProducts(data);
     isLoading(false);
   }
 
@@ -82,19 +83,19 @@ function ProductList () : React.ReactElement {
     isLoading(false);
   }
   function fitDataToRequest() {
-    const { categoria, descuento, sortBy } = reduxSearchParams
-    const catValidation = categoria === 'Todos' || categoria === 'Buscar'
+    const { categoria, descuento, sortBy } = reduxSearchParams;
+    const catValidation = categoria === 'Todos' || categoria === 'Buscar';
     const fixedData = {
       ...reduxSearchParams,
       filters: {
         categoria: catValidation ? null : categoria,
-        descuento        
+        descuento
       },
       categoria: null,
       descuento: null,
-      sortBy: sortBy? JSON.parse(sortBy) : null
-    }
-    return removeEmptyAndNull(fixedData)
+      sortBy: sortBy ? JSON.parse(sortBy) : null
+    };
+    return removeEmptyAndNull(fixedData);
   }
   // ---Render
   return (

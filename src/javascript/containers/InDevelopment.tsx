@@ -6,7 +6,7 @@ function InDevelopment() : React.ReactElement {
   return (
     <>
       <p>Paciencia por favor...</p>
-      <p> 
+      <p>
         <span>
           Módulo en
           desarrollo.

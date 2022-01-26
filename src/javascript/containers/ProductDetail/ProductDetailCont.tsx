@@ -4,7 +4,7 @@ import { Row, Col } from 'antd';
 // ---Redux
 import { useSelector, useDispatch } from 'react-redux';
 import { updateLoading } from '@Redux/appInfo/actions';
-import { updateReduxProdDetail } from '@Redux/appInfo/productDetail';
+import { updateReduxProdDetail } from '@Redux/productDetail/actions';
 // ---Components
 import ShortData from 'Cont/ProductDetail/components/ShortData';
 import Actions from 'Cont/ProductDetail/components/Actions';
@@ -12,7 +12,7 @@ import Questions from 'Cont/ProductDetail/components/Questions';
 // ---Types
 import { ReduxState } from '@Redux/globalReducers';
 import { IDParamsBody } from '@Declarations';
-import { Product } from '@Redux/appInfo/customTypes';
+import { Product } from '@Redux/productDetail/customTypes';
 // --Request
 import { getProductRequest } from 'AppConfig/peticiones';
 import { asyncHandler, testError } from 'AppConfig/requestHandlers';

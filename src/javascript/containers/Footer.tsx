@@ -10,12 +10,14 @@ import {
 // ---Others
 import { ownerData } from 'AppConfig/globalConfig';
 
-const { title, phoneStr, phoneMain, facebookUrl, instagramUrl } = ownerData
+const {
+  title, phoneStr, phoneMain, facebookUrl, instagramUrl
+} = ownerData;
 
 const { main, sub } = title;
 
 // ------------------------------------------ COMPONENT-----------------------------------------
-const Footer = withRouter(props => {
+const Footer = withRouter((props:any) => {
   const current = props.location.pathname;
   const isAdmin = new RegExp('^[/][m][a][s][t][e][r]');
 
@@ -54,18 +56,14 @@ const Footer = withRouter(props => {
         </Col>
       </Row>
       <Row className="footer-logo">
-        {main} 
-        {' '}
+        {main}
         <span>{sub}</span>
       </Row>
       <Row className="footer-rigths">
-        © 2020 
-        {' '}
-        {main} 
-        {' '}
+        © 2020
+        {main}
         {sub}
-        , Inc. All Rights Reserved. Did you like this site? check 
-        {' '}
+        , Inc. All Rights Reserved. Did you like this site? check
         <a href="http://forgemytech.com" target="_blank" rel="noopener noreferrer">forgemytech.com</a>
       </Row>
     </div>

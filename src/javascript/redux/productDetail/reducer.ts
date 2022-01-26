@@ -1,25 +1,20 @@
 // -------------------------------------------TYPES------------------------------------
-import { GET_PUBLIC_HOME, GET_PRODUCTS } from '@Redux/home/types';
-import { Action, ReducerState, Product } from '@Redux/home/customTypes';
+import { UPDATE_PRODUCT_DETAIL } from '@Redux/productDetail/types';
+import { ReducerState, Action, Product } from '@Redux/productDetail/customTypes';
 
 // -------------------------------------------STATE------------------------------------
 const INITIAL_STATE = {
+  productDetail: {}
 };
 
 // ------------------------------------------REDUCER-----------------------------------
 export default (state = INITIAL_STATE, action: Action) : ReducerState => {
   const { type, payload } = action;
   switch (type) {
-    case GET_PUBLIC_HOME:
+    case UPDATE_PRODUCT_DETAIL:
       return {
         ...state,
-        ...<ReducerState>payload
-      };
-
-    case GET_PRODUCTS:
-      return {
-        ...<ReducerState>state,
-        productsData: <Array<Product>>payload
+        productDetail: <Product>payload
       };
 
     default:
