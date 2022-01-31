@@ -11,13 +11,13 @@ import { ReduxState } from '@Redux/globalReducers';
 import TabMenu from 'Cont/ProductList/components/TabMenu';
 import MapProudcts from 'Cont/ProductList/components/MapProudcts';
 // --Request
-import { searchProducts } from 'AppConfig/peticiones';
-import { asyncHandler, testError } from 'AppConfig/requestHandlers';
+import { searchProducts } from 'Requests/peticiones';
+import { asyncHandler, testError } from 'Requests/requestHandlers';
 // ---Types
 import { SearchParams, SearchParamsURL, ProductPayload } from '@Redux/productList/customTypes';
 // ---Others
-import { stringToObject, removeEmptyAndNull, objectToQueryString } from 'AppConfig/otherMethods';
-import { validateSearchParams } from 'AppConfig/validations';
+import { stringToObject, removeEmptyAndNull, objectToQueryString } from 'Others/otherMethods';
+import { validateSearchParams } from 'Others/validations';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
 function ProductList() : React.ReactElement {

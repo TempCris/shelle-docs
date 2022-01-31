@@ -5,21 +5,21 @@ import { Link } from 'react-router-dom';
 // ---Components
 import FitImg from 'Utils/FitImg';
 // ---CommonComps
-import TitleStyler from 'AppConfig/TitleStyler';
+import TitleStyler from 'Others/TitleStyler';
 // ---Types
-import { Product } from '@Redux/appInfo/customTypesHome';
+import { Product } from '@Redux/home/customTypes';
 // ---Others
-import { priceFormat } from 'AppConfig/otherMethods';
+import { priceFormat } from 'Others/otherMethods';
 
-function PriceBox (props: {precioOnline: number, descuento: number}) {
-  const { precioOnline, descuento} = props
+function PriceBox(props: {precioOnline: number, descuento: number}) {
+  const { precioOnline, descuento } = props;
 
   function getExtraPrice(price: number) : number {
-    return price*100/(100-descuento)
+    return price * 100 / (100 - descuento);
   }
 
-  if(descuento && descuento>0)
-    return(
+  if (descuento && descuento > 0) {
+    return (
       <>
         <Col span={12}>
           <aside>
@@ -32,27 +32,26 @@ function PriceBox (props: {precioOnline: number, descuento: number}) {
           {` ${priceFormat(precioOnline)}`}
         </Col>
       </>
-    )
+    );
+  }
   return (
-    <>
-      <Col span={24}>
-        Ahora:
-        {` ${priceFormat(precioOnline)}`}
-      </Col>
-    </>
-  )
+    <Col span={24}>
+      Ahora:
+      {` ${priceFormat(precioOnline)}`}
+    </Col>
+  );
 }
 
-function PromoBox (props: { descuento: number }) {
-  const { descuento } = props
-  if(descuento && descuento > 0)
-    return(
+function PromoBox(props: { descuento: number }) {
+  const { descuento } = props;
+  if (descuento && descuento > 0) {
+    return (
       <div className="product-box-promo">
         <span>{`-${descuento}%`}</span>
       </div>
-    )
-  return null
-  
+    );
+  }
+  return null;
 }
 // ------------------------------------------ TYPES-----------------------------------------
 interface Props {
@@ -60,7 +59,7 @@ interface Props {
 }
 // ------------------------------------------ COMPONENT-----------------------------------------
 function ProductBox(props: Props) : React.ReactElement {
-  const { producto } = props
+  const { producto } = props;
   const {
     _id,
     nombre,
@@ -74,7 +73,7 @@ function ProductBox(props: Props) : React.ReactElement {
   return (
     <Col xs={24} sm={16} md={12} lg={8} xl={8} xxl={6}>
       <div className="product-box-container">
-        <Link to={'/item?id=' + _id}>
+        <Link to={`/item?id=${_id}`}>
           <FitImg
             srcImg={images.cover}
             estilo="product-box-img-container"

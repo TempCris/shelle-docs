@@ -2,8 +2,8 @@
 import React from 'react';
 import { Carousel } from 'antd';
 // ---Components
-import Banners from 'Cont/Home/components/Banner';
-import LazyBanner from 'Cont/Home/components/LazyBanner';
+import Banners from 'Cont/Home/components/DinamicCarousel/components/Banner';
+import LazyBanner from 'Cont/Home/components/DinamicCarousel/components/LazyBanner';
 // ---Media
 // import c1 from 'Images/bannerD1.jpg';
 

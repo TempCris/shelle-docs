@@ -1,9 +1,9 @@
 // ---Dependencys
 import React from 'react';
 // ---Components
-import ShortDataCard from 'Cont/ProductDetail/components/ShortDataCard';
+import ShortDataCard from 'Cont/ProductDetail/components/ShortData/components/ShortDataCard';
 // ---Types
-import { Product } from '@Redux/appInfo/customTypesPd';
+import { Product } from '@Redux/productDetail/customTypes';
 
 // ------------------------------------------ TYPES-----------------------------------------
 interface Props {

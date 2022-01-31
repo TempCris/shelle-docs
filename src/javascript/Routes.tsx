@@ -23,7 +23,7 @@ import TrackerPage from 'Pages/TrackerPage';
 import Error404Page from 'Pages/Error404Page';
 // ---Components
 import NavbarCont from 'Cont/NavBar/NavbarCont';
-import Footer from 'Cont/Footer';
+import Footer from 'Cont/Footer/Footer';
 /** Render components as routes of the app, is the root of the entire app also,
  * get usefull data as window size of the app, current route and retrive the data to redux  */
 function Routes({ location }: RouteComponentProps): ReactElement {

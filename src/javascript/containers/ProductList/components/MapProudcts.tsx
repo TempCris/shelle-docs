@@ -4,7 +4,7 @@ import { Row, Col, Pagination } from 'antd';
 // ---Components
 import ProductBox from 'Utils/ProductBox';
 // ---Types
-import { Product } from '@Redux/appInfo/customTypesHome';
+import { Product } from '@Redux/home/customTypes';
 
 // ------------------------------------------ TYPES-----------------------------------------
 interface Props {

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col } from 'antd';
 // ---Types
-import { Images } from '@Redux/appInfo/customTypesPd';
+import { Images } from '@Redux/productDetail/customTypes';
 // ---Utils
 import FitImg from 'Utils/FitImg';
 
