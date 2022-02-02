@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateLoading } from '@Redux/appInfo/actions';
 import { updateReduxProdDetail } from '@Redux/productDetail/actions';
 // ---Components
-import ShortData from 'Cont/ProductDetail/components/ShortData';
+import ShortData from 'Cont/ProductDetail/components/ShortData/ShortDataCont';
 import Actions from 'Cont/ProductDetail/components/Actions';
 import Questions from 'Cont/ProductDetail/components/Questions';
 // ---Types
@@ -14,12 +14,12 @@ import { ReduxState } from '@Redux/globalReducers';
 import { IDParamsBody } from '@Declarations';
 import { Product } from '@Redux/productDetail/customTypes';
 // --Request
-import { getProductRequest } from 'AppConfig/peticiones';
-import { asyncHandler, testError } from 'AppConfig/requestHandlers';
+import { getProductRequest } from 'Requests/peticiones';
+import { asyncHandler, testError } from 'Requests/requestHandlers';
 // ---Others
-import { stringToObject } from 'AppConfig/otherMethods';
-import { validateJustIdParam } from 'AppConfig/validations';
-import TitleStyler from 'AppConfig/TitleStyler';
+import { stringToObject } from 'Others/otherMethods';
+import { validateJustIdParam } from 'Others/validations';
+import TitleStyler from 'Others/TitleStyler';
 import ImagesWidget from 'Cont/ProductDetail/components/ImagesWidget';
 
 // ------------------------------------------ COMPONENT-----------------------------------------

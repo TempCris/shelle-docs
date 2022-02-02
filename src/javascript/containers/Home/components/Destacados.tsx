@@ -4,7 +4,7 @@ import { Row } from 'antd';
 // ---CommonComps
 import ProductBox from 'Utils/ProductBox';
 // ---Types
-import { Product } from '@Redux/appInfo/customTypesHome';
+import { Product } from '@Redux/home/customTypes';
 
 // ------------------------------------------ TYPES-----------------------------------------
 interface Props {

@@ -3,7 +3,7 @@
 // ---Dependencys
 import React from 'react';
 // ---Others
-import { getWordsArray, makeWordsArray } from 'AppConfig/otherMethods';
+import { getWordsArray, makeWordsArray } from 'Others/otherMethods';
 
 // ------------------------------------------ TYPES-----------------------------------------
 interface Props {

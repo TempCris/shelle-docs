@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { saveHomeData, saveReduxProducts } from '@Redux/home/actions';
 import { updateLoading } from '@Redux/appInfo/actions';
 // ---Components
-import DinamicCarousel from 'Cont/Home/components/DinamicCarousel';
+import DinamicCarousel from 'Cont/Home/components/DinamicCarousel/DinamicCarouselCont';
 import BuySteps from 'Cont/Home/components/BuySteps';
 import ButtonProd from 'Cont/Home/components/ButtonProd';
 import Destacados from 'Cont/Home/components/Destacados';
@@ -15,8 +15,8 @@ import { ReducerState as HomeData, Product } from '@Redux/home/customTypes';
 // ---Others
 import { ownerData, appConfig } from 'AppConfig/globalConfig';
 // --Request
-import { getHomePublic, getHomeProducts } from 'AppConfig/peticiones';
-import { asyncHandler, testError } from 'AppConfig/requestHandlers';
+import { getHomePublic, getHomeProducts } from 'Requests/peticiones';
+import { asyncHandler, testError } from 'Requests/requestHandlers';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
 function Home() : ReactElement {

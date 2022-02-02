@@ -228,13 +228,13 @@ export function stringToObject(query: string) : RandObj | null {
 
   if (isValid) {
     const str = query.substr(1, query.length);
-    return JSON.parse('{"' + decodeURI(str).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}');
+    return JSON.parse(`{"${decodeURI(str).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"')}"}`);
   }
   return null;
 }
 
 export function objectToQueryString(someObj: RandObj) : string {
-  const queryString = Object.keys(someObj).map((key) => key + '=' + someObj[key]).join('&');
+  const queryString = Object.keys(someObj).map((key) => `${key}=${someObj[key]}`).join('&');
 
   return `?${queryString}`;
 }

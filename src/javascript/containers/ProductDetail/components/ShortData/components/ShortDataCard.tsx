@@ -2,9 +2,9 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 // ---Types
-import { Product } from '@Redux/appInfo/customTypesPd';
+import { Product } from '@Redux/productDetail/customTypes';
 // ---Others
-import { priceFormat } from 'AppConfig/otherMethods';
+import { priceFormat } from 'Others/otherMethods';
 
 // ---AUX COMPONENT
 function PriceHandler(props: {precioOnline: number; descuento: number}) {
