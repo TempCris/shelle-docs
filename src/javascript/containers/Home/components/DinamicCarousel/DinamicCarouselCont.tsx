@@ -19,6 +19,11 @@ interface Props {
   isMovil: boolean;
 }
 // ------------------------------------------ COMPONENT-----------------------------------------
+/**
+ * Componente Carousel
+ * @param {props} props Array(Banner), boleean
+ * @return ReactElement
+ */
 function DinamicCarousel(props: Props) : React.ReactElement {
   const { banners, isMovil } = props;
   if (banners) {

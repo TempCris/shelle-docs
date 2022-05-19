@@ -19,7 +19,7 @@ interface Props {
     someID?: string;
 }
 // ------------------------------------------ COMPONENT-----------------------------------------
-function ButtonMlg (props: Props) : ReactElement {
+function ButtonMlg(props: Props) : ReactElement {
   const {
     htmlType,
     label,
@@ -34,7 +34,7 @@ function ButtonMlg (props: Props) : ReactElement {
   } = props;
 
   function onClickEvent() {
-    if(variant !== 'block' && onClick){
+    if (variant !== 'block' && onClick) {
       onClick();
     }
   }
@@ -93,7 +93,7 @@ function ButtonMlg (props: Props) : ReactElement {
         value={value}
         id={someID}
         onClick={onClickEvent}
-        className={estilo || 'btn-mlg ' + checkVariant() + ' ' + checkSize()}
+        className={estilo || `btn-mlg ${checkVariant()} ${checkSize()}`}
       >
         {icon}
         {label}
@@ -108,7 +108,7 @@ function ButtonMlg (props: Props) : ReactElement {
       value={value}
       id={someID}
       onClick={onClickEvent}
-      className={estilo || 'btn-mlg ' + checkVariant() + ' ' + checkSize()}
+      className={estilo || `btn-mlg ${checkVariant()} ${checkSize()}`}
     >
       {icon}
       {label}

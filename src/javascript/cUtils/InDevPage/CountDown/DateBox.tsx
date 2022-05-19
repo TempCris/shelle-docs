@@ -1,5 +1,12 @@
 // ---Dependencys
 import React from 'react';
+
+/**
+ * Generate a fragment with date
+ * @param {string} label
+ * @param {number} value
+ * @return {ReactComponentElement}
+ */
 // -----------------------------------------TYPES-----------------------------------
 interface Props {
   label: string;

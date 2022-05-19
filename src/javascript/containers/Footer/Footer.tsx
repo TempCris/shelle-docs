@@ -16,6 +16,11 @@ const {
 
 const { main, sub } = title;
 
+/**
+ *Componente del Footer se le da estructura y comportamientos ya que se usara de manera global
+  *@param any props
+  *@return React Component
+ */
 // ------------------------------------------ COMPONENT-----------------------------------------
 const Footer = withRouter((props:any) => {
   const current = props.location.pathname;

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 // ---Dependencys
 import React, { useState, ReactElement } from 'react';
 import { MenuFoldOutlined, MenuOutlined } from '@ant-design/icons';

@@ -6,6 +6,11 @@ import { ShoppingOutlined } from '@ant-design/icons';
 import ButtonMlg from 'Utils/ButtonMlg';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
+/**
+ * Componente de boton de ver Catalogo
+ * @param {props} props string - urlParams
+ * @return ReactElement
+ */
 function ButtonProd(props: { urlParams: string }): React.ReactElement {
   const { urlParams } = props;
   return (

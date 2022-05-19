@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 // ---Dependencys
 import React from 'react';
 import { Row, Col, Pagination } from 'antd';

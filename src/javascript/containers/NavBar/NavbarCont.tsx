@@ -11,6 +11,11 @@ import logo from 'Images/logoStoreL.png';
 import { RouteComponentProps } from 'react-router-dom';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
+/**
+ * Componente de la NavBar
+ * @param {props} props RouteComponentProps
+ * @return ReactElement
+ */
 export default function NavbarCont(props:RouteComponentProps): ReactElement {
   const { currentPath } = props;
   // Redux States

@@ -6,6 +6,11 @@ interface Props {
   srcImg: string;
 }
 // ------------------------------------------ COMPONENT-----------------------------------------
+/**
+ * Componente para la carga de imagenes para el carousel
+ * @param {props} props string srcImg
+ * @return ReactElement
+ */
 function Banner(props: Props): ReactElement {
   const { srcImg } = props;
   return (

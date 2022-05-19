@@ -14,6 +14,11 @@ interface Props {
   isMovil: boolean;
 }
 // ------------------------------------------ COMPONENT-----------------------------------------
+/**
+ * Componente de pasos de compra
+  *@param {props} props boolean isMovil
+  *@return ReactElement
+ */
 export default function BuySteps(props: Props) : React.ReactElement {
   const { isMovil } = props;
   return (

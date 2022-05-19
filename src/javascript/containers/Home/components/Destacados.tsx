@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 // ---Dependencys
 import React from 'react';
 import { Row } from 'antd';
@@ -11,6 +12,11 @@ interface Props {
   productsData?: Array<Product>;
 }
 // ------------------------------------------ COMPONENT-----------------------------------------
+/**
+ * Componente de articulos destacados
+ * @param {props} props Array(Product) - productsData
+ * @return ReactElement | null
+ */
 function Destacados(props: Props) : React.ReactElement | null {
   const { productsData } = props;
   if (productsData && productsData.length > 0) {

@@ -7,14 +7,16 @@ import { ReduxState } from '@Redux/globalReducers';
 import LoadingFullScreen from 'Cont/NavBar/components/LoadingFullScreen';
 
 // -----------------------------------------COMPONENT-----------------------
-
+/**
+ * Componente de transicion de carga
+  *@param {props} props
+  *@return ReactElement | null
+ */
 function GlobalComponents(): ReactElement {
   // Redux States
   const { isLoading } = useSelector((reducers: ReduxState) => reducers.appInfoReducer);
   return (
-    <>
-      <LoadingFullScreen isLoading={isLoading} />
-    </>
+    <LoadingFullScreen isLoading={isLoading} />
   );
 }
 

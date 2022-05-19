@@ -19,6 +19,10 @@ import { getHomePublic, getHomeProducts } from 'Requests/peticiones';
 import { asyncHandler, testError } from 'Requests/requestHandlers';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
+/**
+ * Componente de pagina principal
+ * @return ReactElement
+ */
 function Home() : ReactElement {
   // ----------------------- hooks, const, props y states
   // Redux States
